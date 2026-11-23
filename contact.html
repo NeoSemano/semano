@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap 5 Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+   <header>
+    <nav class="navbar">
+      <div class="container">
+        <a class="navbar-brand" href="index1.html">Discover <span>Lesotho</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center">
+            <a class="nav-link active" href="index1.html">Home</a>
+            <a class="nav-link" href="about.html">About</a>
+            <a class="nav-link" href="destinations.html">Destinations</a>
+            <a class="nav-link" href="gallery.html">Gallery</a></li>
+            <a class="nav-link" href="contact.html">Contact / Book</a>
+            <li class="nav-item ms-lg-2">
+              <button class="btn btn-sm btn-outline-light" id="themeToggle" type="button">ðŸŒ™ Dark mode</button></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+<main>
+        <section class="page-banner">
+            <div class="container">
+                <p class="small-heading">LET US HELP YOU PLAN</p>
+                <h1>Contact and booking enquiry</h1>
+                <p>Complete a form below to practise sending a tourism enquiry.</p>
+            </div>
+        </section>
+
+        <section class="container section-space">
+            <div class="row g-4">
+                <div class="col-lg-7">
+                    <div class="form-panel">
+                        <h2 class="h3">Booking enquiry</h2>
+                        <p>Fields with an asterisk (*) must be completed.</p>
+
+                        <form id="bookingForm" novalidate>
+                            <div class="mb-3">
+                                <label for="fullName" class="form-label">Full name *</label>
+                                <input type="text" class="form-control" id="fullName" required minlength="2" placeholder="Enter your name">
+                                <div class="invalid-feedback">Please enter your name (at least 2 letters).</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email address *</label>
+                                <input type="email" class="form-control" id="email" required placeholder="name@example.com">
+                                <div class="invalid-feedback">Please enter a valid email address.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="phone" class="form-label">Phone number *</label>
+                                <input type="tel" class="form-control" id="phone" required pattern="[0-9+() -]{7,20}" placeholder="e.g. 5xxxxxxx">
+                                <div class="invalid-feedback">Enter a phone number with at least 7 characters using numbers or + ( ) -.</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="visitDate" class="form-label">Preferred date *</label>
+                                    <input type="date" class="form-control" id="visitDate" required>
+                                    <div class="invalid-feedback">Choose a date that is today or later.</div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="people" class="form-label">Number of people *</label>
+                                    <input type="number" class="form-control" id="people" min="1" max="30" value="1" required>
+                                    <div class="invalid-feedback">Choose between 1 and 30 people.</div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="place" class="form-label">Destination *</label>
+                                <select id="place" class="form-select" required>
+                                    <option value="">Choose a destination</option>
+                                    <option>Maletsunyane Falls</option>
+                                    <option>Katse Dam</option>
+                                    <option>Thaba-Bosiu</option>
+                                    <option>Other / not sure yet</option>
+                                </select>
+                                <div class="invalid-feedback">Please choose a destination.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Extra information</label>
+                                <textarea id="message" class="form-control" rows="4" placeholder="Tell us what you would like to know"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-success" onclick="non()" >Send enquiry</button>
+                            <div id="bookingResult" class="mt-3" role="status" aria-live="polite"></div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <aside class="contact-side">
+                        <h2 class="h4">Contact information</h2>
+                        <p>This is a student demonstration website, so the details below are examples rather than a real booking office.</p>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><strong>Country:</strong> Lesotho</li>
+                            <li class="mb-2"><strong>City:</strong> Maseru</li>
+                            <li class="mb-2"><strong>Website:</strong> Explore Lesotho Tourism</li>
+                        </ul>
+                        <hr>
+                        <h3 class="h5">Simple trip cost estimate</h3>
+                        <p>Enter an estimated cost per person. This is only a calculator for your project and is not an actual tour price.</p>
+                        <label for="costPerPerson" class="form-label">Cost per person (M)</label>
+                        <input type="number" id="costPerPerson" class="form-control mb-3" min="0" value="100">
+                        <label for="costPeople" class="form-label">Number of people</label>
+                        <input type="number" id="costPeople" class="form-control mb-3" min="1" value="1">
+                        <button type="button" id="calculateCost" class="btn btn-outline-success">Calculate estimate</button>
+                        <p id="costResult" class="fw-bold mt-3" aria-live="polite">Estimated total: M100.00</p>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+       
+    </main>
+    
+<footer class="footer"><div class="container-footer">
+    <div>
+      <a class="footer-brand" href="index.html">Discover Lesotho</a>
+    <p>Explore the Kingdom in the Sky.</p>
+  </div>
+    <div class="footer-links"><a href="about.html">About</a>
+      <a href="destinations.html">Destinations</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </div><p class="copyright">
+      <span class="current-year"></span> 
+      Discover Lesotho tourism website project.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
